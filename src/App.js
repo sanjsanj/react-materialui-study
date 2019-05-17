@@ -1,12 +1,15 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
+import ProgressBar from "./ProgressBar";
 import AppBar from "./AppBar";
 
 function App() {
   return (
     <>
       <CssBaseline />
+
+      <ProgressBar />
 
       <AppBar />
 
