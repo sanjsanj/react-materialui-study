@@ -5,6 +5,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import Paper from "@material-ui/core/Paper";
 import Fab from "@material-ui/core/Fab";
 import List from "@material-ui/core/List";
@@ -13,25 +15,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Avatar from "@material-ui/core/Avatar";
 import MenuIcon from "@material-ui/icons/Menu";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddIcon from "@material-ui/icons/Add";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
 const styles = theme => ({
-  text: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
-  },
-  paper: {
-    paddingBottom: 50,
-  },
-  list: {
-    marginBottom: theme.spacing.unit * 2,
-  },
-  subHeader: {
-    backgroundColor: theme.palette.background.paper,
-  },
   appBar: {
     top: "auto",
     bottom: 0,
@@ -44,36 +33,54 @@ const styles = theme => ({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  fabButton: {
-    position: "absolute",
-    zIndex: 1,
-    top: -30,
-    left: 0,
-    right: 0,
-    margin: "0 auto",
-  },
+  grow: {},
 });
 
 function BottomAppBar(props) {
   const { classes } = props;
+
+  const [accountAnchorEl, setAccountAnchorEl] = React.useState(null);
+
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <IconButton color="inherit" aria-label="Open drawer">
-          <MenuIcon />
-        </IconButton>
-
-        {/* <Fab color="secondary" aria-label="Add" className={classes.fabButton}>
-          <AddIcon />
-        </Fab> */}
+        <Typography variant="h6" color="inherit" className={classes.grow}>
+          traintimes
+        </Typography>
 
         <div>
-          {/* <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton> */}
+          <IconButton
+            aria-owns={accountAnchorEl ? "menu-appbar" : undefined}
+            onClick={e => setAccountAnchorEl(e.currentTarget)}
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <AccountCircleIcon />
+          </IconButton>
 
-          <IconButton color="inherit">
-            <MoreIcon />
+          <Menu
+            transformOrigin={{
+              vertical: "center",
+              horizontal: "center",
+            }}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            onClose={() => setAccountAnchorEl(null)}
+            anchorEl={accountAnchorEl}
+            open={!!accountAnchorEl}
+            id="menu-account"
+          >
+            <MenuItem disabled>Signed in as user.email</MenuItem>
+
+            <MenuItem selected onClick={() => console.log("auth().signOut()")}>
+              Sign out
+            </MenuItem>
+          </Menu>
+
+          <IconButton color="inherit" aria-label="Open drawer">
+            <MenuIcon />
           </IconButton>
         </div>
       </Toolbar>
