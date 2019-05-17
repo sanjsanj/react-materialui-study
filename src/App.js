@@ -1,22 +1,29 @@
-import React from 'react';
+import React from "react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import AppBar from "./AppBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <>
+      <CssBaseline />
+
+      <AppBar />
+
+      <div>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
-          className="App-link"
           href="https://reactjs.org"
-          target="_blank"
           rel="noopener noreferrer"
+          className="App-link"
+          target="_blank"
         >
           Learn React
         </a>
-      </header>
-    </div>
+      </div>
+    </>
   );
 }
 
