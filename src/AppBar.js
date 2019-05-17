@@ -42,7 +42,11 @@ const styles = theme => ({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  grow: {},
+  menu: {
+    [theme.breakpoints.up("md")]: {
+      marginTop: 44,
+    },
+  },
 });
 
 function BottomAppBar(props) {
@@ -54,7 +58,7 @@ function BottomAppBar(props) {
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6" color="inherit" className={classes.grow}>
+        <Typography variant="h6" color="inherit">
           material_app
         </Typography>
 
@@ -79,6 +83,7 @@ function BottomAppBar(props) {
               horizontal: "center",
             }}
             onClose={() => setAnchorEl(null)}
+            className={classes.menu}
             anchorEl={anchorEl}
             open={!!anchorEl}
             id="menu-account"
@@ -88,11 +93,17 @@ function BottomAppBar(props) {
 
             <Divider />
 
-            <MenuItem>
+            <MenuItem disabled>
               <ListItemIcon>
                 <EmailIcon />
               </ListItemIcon>
 
+              <Typography variant="inherit" noWrap>
+                contact
+              </Typography>
+            </MenuItem>
+
+            <MenuItem>
               <a
                 href="mailto:hello@material_app.com"
                 rel="noopener noreferrer"
