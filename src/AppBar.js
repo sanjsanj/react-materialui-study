@@ -22,6 +22,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import SendIcon from "@material-ui/icons/Send";
@@ -47,6 +48,9 @@ const styles = theme => ({
       marginTop: 44,
     },
   },
+  anchor: {
+    color: theme.anchor.main,
+  },
 });
 
 function BottomAppBar(props) {
@@ -58,8 +62,8 @@ function BottomAppBar(props) {
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h6" color="inherit">
-          material_app
+        <Typography variant="h6" color="inherit" className={classes.title}>
+          App
         </Typography>
 
         <div>
@@ -99,13 +103,14 @@ function BottomAppBar(props) {
               </ListItemIcon>
 
               <Typography variant="inherit" noWrap>
-                contact
+                Contact
               </Typography>
             </MenuItem>
 
             <MenuItem>
               <a
                 href="mailto:hello@material_app.com"
+                className={classes.anchor}
                 rel="noopener noreferrer"
                 target="_top"
               >

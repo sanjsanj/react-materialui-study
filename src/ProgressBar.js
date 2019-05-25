@@ -6,8 +6,10 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 const styles = theme => ({
   root: {
     position: "absolute",
-    width: "90%",
-    left: "5%",
+    width: "100%",
+    top: 0,
+    // width: "90%",
+    // left: "5%",
 
     [theme.breakpoints.up("md")]: {
       top: 80,
