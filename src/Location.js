@@ -1,8 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
+import {
+  Dialog,
+  Typography,
+  Container,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  Paper,
+} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: theme.paperDefault,
@@ -11,5 +18,33 @@ const useStyles = makeStyles(theme => ({
 export default function Location() {
   const classes = useStyles();
 
-  return <Paper className={classes.root}>Select location</Paper>;
+  const [open, setOpen] = React.useState(false);
+
+  function handleClickOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
+
+  return (
+    <>
+      <Paper className={classes.root} onClick={handleClickOpen}>
+        Select location
+      </Paper>
+
+      <Dialog
+        aria-labelledby="form-dialog-title"
+        onClose={handleClose}
+        open={open}
+      >
+        <DialogTitle id="form-dialog-title">title</DialogTitle>
+        <DialogContent>content</DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>close</Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
 }

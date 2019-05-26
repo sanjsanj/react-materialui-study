@@ -13,26 +13,27 @@ function App(props) {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    props.enqueueSnackbar("First message", {
-      variant: "warning",
-      autoHideDuration: 1000,
-    });
-    props.enqueueSnackbar("Second message!", {
-      variant: "error",
-      autoHideDuration: 1000,
-    });
-    props.enqueueSnackbar("Third message, Logged in", {
-      variant: "success",
-      autoHideDuration: 1000,
-    });
-    props.enqueueSnackbar("Fourth message", {
+    props.enqueueSnackbar("Loading", {
       variant: "info",
-      autoHideDuration: 1000,
+      autoHideDuration: 3000,
     });
-    props.enqueueSnackbar("Fifth message", {});
+
+    // props.enqueueSnackbar("First message", {
+    //   variant: "warning",
+    //   autoHideDuration: 1000,
+    // });
+    // props.enqueueSnackbar("Second message!", {
+    //   variant: "error",
+    //   autoHideDuration: 1000,
+    // });
+    // props.enqueueSnackbar("Fifth message", {});
 
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
+      props.enqueueSnackbar("Done", {
+        variant: "success",
+        autoHideDuration: 3000,
+      });
     }, 5000);
 
     return () => clearTimeout(loadingTimeout);
