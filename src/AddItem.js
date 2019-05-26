@@ -5,7 +5,7 @@ import { Add } from "@material-ui/icons";
 
 const useStyles = makeStyles(theme => ({
   fab: {
-    margin: "24px auto",
+    margin: "24px auto 72px",
     display: "flex",
   },
 }));

@@ -55,6 +55,8 @@ function App(props) {
         <Location />
 
         <Tracker />
+        <Tracker />
+        <Tracker />
 
         <AddItem />
       </Container>

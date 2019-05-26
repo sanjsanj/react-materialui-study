@@ -9,13 +9,14 @@ import {
   DialogActions,
   Button,
   Paper,
+  Grid,
 } from "@material-ui/core";
 
 import SelectDialog from "./SelectDialog";
 import VerticalLinearStepper from "./VerticalLinearStepper";
 
 const useStyles = makeStyles(theme => ({
-  root: theme.paperDefault,
+  root: { ...theme.paperDefault, flexGrow: "1", textAlign: "center" },
   _dialog: {
     // flex: "1 1 auto",
     // color: "green",
@@ -40,7 +41,26 @@ export default function Tracker() {
   return (
     <>
       <Paper className={classes.root} onClick={handleClickOpen}>
-        Tracker
+        <Grid container spacing={3} justify="center">
+          <Grid item xs={12}>
+            <Typography variant="h6">Manchester to Kings Cross</Typography>
+          </Grid>
+
+          <Grid item xs={4} sm={3} md={2}>
+            <Typography>09:45</Typography>
+            <Typography color="primary">On time</Typography>
+          </Grid>
+
+          <Grid item xs={4} sm={3} md={2}>
+            <Typography color="textSecondary">10:15</Typography>
+            <Typography color="secondary">10:20</Typography>
+          </Grid>
+
+          <Grid item xs={4} sm={3} md={2}>
+            <Typography color="textSecondary">10:45</Typography>
+            <Typography color="error">Cancelled</Typography>
+          </Grid>
+        </Grid>
       </Paper>
 
       <Dialog
