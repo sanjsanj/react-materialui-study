@@ -8,6 +8,7 @@ import ProgressBar from "./ProgressBar";
 import AppBar from "./AppBar";
 import Title from "./Title";
 import Location from "./Location";
+import Tracker from "./Tracker";
 
 function App(props) {
   const [loading, setLoading] = React.useState(true);
@@ -53,6 +54,8 @@ function App(props) {
         </Collapse>
 
         <Location />
+
+        <Tracker />
       </Container>
     </>
   );

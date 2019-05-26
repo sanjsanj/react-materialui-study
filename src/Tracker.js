@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 
 import SelectDialog from "./SelectDialog";
+import VerticalLinearStepper from "./VerticalLinearStepper";
 
 const useStyles = makeStyles(theme => ({
   root: theme.paperDefault,
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Location() {
+export default function Tracker() {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -39,7 +40,7 @@ export default function Location() {
   return (
     <>
       <Paper className={classes.root} onClick={handleClickOpen}>
-        Select location
+        Tracker
       </Paper>
 
       <Dialog
@@ -52,14 +53,12 @@ export default function Location() {
         <DialogTitle id="form-dialog-title" className={classes.dialog}>
           title
         </DialogTitle>
-        <DialogContent>
-          <SelectDialog />
-        </DialogContent>
+        {/* <DialogContent> */}
+        <VerticalLinearStepper handleClose={handleClose} />
+        {/* </DialogContent> */}
         <DialogActions>
-          <Button onClick={handleClose}>close</Button>
-          <Button onClick={handleSearch} color="primary" variant="contained">
-            search
-          </Button>
+          {/* <Button onClick={handleClose}>close</Button> */}
+          {/* <Button onClick={handleSearch}>search</Button> */}
         </DialogActions>
       </Dialog>
     </>
