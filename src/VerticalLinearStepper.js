@@ -7,7 +7,7 @@ import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import { Collapse } from "@material-ui/core";
+import { Collapse, Input, TextField } from "@material-ui/core";
 
 import IntegrationReactSelect from "./SelectDialog";
 
@@ -40,9 +40,9 @@ function getStepContent(step) {
     case 0:
       return `For each ad campaign that you create.`;
     case 1:
-      return <input type="text" />;
+      return <TextField type="text" label="Text" />;
     case 2:
-      return <input type="time" step="60" />;
+      return <Input type="time" step="60" />;
     default:
       return "Unknown step";
   }

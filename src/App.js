@@ -1,7 +1,5 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
-import Collapse from "@material-ui/core/Collapse";
+import { CssBaseline, Collapse, Container } from "@material-ui/core";
 import { SnackbarProvider, withSnackbar } from "notistack";
 
 import ProgressBar from "./ProgressBar";
@@ -9,6 +7,7 @@ import AppBar from "./AppBar";
 import Title from "./Title";
 import Location from "./Location";
 import Tracker from "./Tracker";
+import AddItem from "./AddItem";
 
 function App(props) {
   const [loading, setLoading] = React.useState(true);
@@ -56,6 +55,8 @@ function App(props) {
         <Location />
 
         <Tracker />
+
+        <AddItem />
       </Container>
     </>
   );
