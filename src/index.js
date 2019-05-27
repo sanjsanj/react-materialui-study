@@ -12,11 +12,11 @@ import * as serviceWorker from "./serviceWorker";
 
 let theme = createMuiTheme({
   palette: {
-    // type: "dark",
+    type: "dark",
   },
   typography: { useNextVariants: true },
   anchor: {
-    // main: "#fff",
+    main: "#fff",
   },
   paperDefault: {
     padding: createMuiTheme().spacing(3, 2),
